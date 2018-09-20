@@ -20,7 +20,8 @@ TBD: adding your license key via the `license.conf`
 Once the image is built it can be reached via `docker run screamingfrog`.  By default it will show `--help`
 
 ```
-docker run screamingfrog
+> docker run screamingfrog
+
 usage: ScreamingFrogSEOSpider [crawl-file|options]
 
 Positional arguments:
