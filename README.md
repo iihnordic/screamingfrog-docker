@@ -1,19 +1,22 @@
 # ScreamingFrog Docker
 
-WIP to provide headless screaming frogs.
+Provides headless screaming frogs.
+
+Helped by [`databulle`](https://www.databulle.com/blog/seo/screaming-frog-headless.html) - thank you!
 
 Contains a Docker installation Ubuntu ScreamingFrog v10 intended to be used for its [Command Line Interface](https://www.screamingfrog.co.uk/seo-spider/user-guide/general/#command-line).
 
-`docker build https://github.com/iihnordic/screamingfrog-docker`
+## Installation
 
-Or clone repo and run:
+1. Clone repo
+2. Add a license.txt file with your username on the first line, and key on the second.
+
+3. Run:
 
 `docker build -t screamingfrog .`
 
 Or submit to Google Build Triggers, which will host it for you privately at a URL like 
 `gcr.io/your-project/screamingfrog-docker:a2ffbd174483aaa27473ef6e0eee404f19058b1a` - for use in Kubernetes and such like. 
-
-TBD: adding your license key via the `license.conf`
 
 ## Usage
 
@@ -97,12 +100,14 @@ Options:
                          Print this message and exit
 ```
 
+## Crawling
 
+Crawl a website via the example below.  You need to add a local volume if you want to save the results to your laptop.  A folder of `/home/crawls/` is available in the Docker image you can save crawl results to.
 
-The license and EULA needs accepting before use, I don't know how to configure that yet:
+The example below starts a headless crawl of `http://iihnordic.com` and saves the crawl and a bulk export of "All Outlinks" to a local folder, that is linked to the `/home/crawls` folder within the container.
 
 ```
-> docker run screamingfrog --crawl http://iihnordic.com --headless
+> docker run -v /Users/mark/screamingfrog-docker/crawls:/home/crawls screamingfrog --crawl http://iihnordic.com --headless --save-crawl --output-folder /home/crawls --timestamped-output --bulk-export 'All Outlinks'
 
 2018-09-20 12:51:11,640 [main] INFO  - Persistent config file does not exist, /root/.ScreamingFrogSEOSpider/spider.config
 2018-09-20 12:51:11,827 [8] [main] INFO  - Application Started
@@ -117,14 +122,16 @@ The license and EULA needs accepting before use, I don't know how to configure t
 2018-09-20 12:51:11,840 [8] [main] INFO  - Memory: Physical=2.0GB, Used=12MB, Free=19MB, Total=32MB, Max=2048MB, Using 0%
 2018-09-20 12:51:11,841 [8] [main] INFO  - Licence File: /root/.ScreamingFrogSEOSpider/licence.txt
 2018-09-20 12:51:11,841 [8] [main] INFO  - Licence Status: invalid
-2018-09-20 12:51:11,841 [8] [main] INFO  - Locale: en_US
-2018-09-20 12:51:12,053 [8] [main] INFO  - Rendering supported on this platform
-2018-09-20 12:51:12,063 [8] [main] INFO  - Persistent config file does not exist, /root/.ScreamingFrogSEOSpider/spider.config
-2018-09-20 12:51:12,206 [8] [main] WARN  - Unable to find a suitable Arial font - letting system select best matching font
-2018-09-20 12:51:12,317 [8] [main] INFO  - Image scaling set at [1.0]
-2018-09-20 12:51:12,564 [8] [main] INFO  - Setting proxy: ProxySettings [mEnabled=false, mHost=, mPort=3128]
-2018-09-20 12:51:12,663 [8] [main] INFO  - Has not accepted the current version of the EULA yet.
-2018-09-20 12:51:12,668 [8] [main] INFO  - User did not accept the licence agreement, exiting.
-2018-09-20 12:51:12,673 [8] [exitlogger] INFO  - Application Exited
+....
+....
+....
+2018-09-20 13:52:14,682 [8] [SaveFileWriter 1] INFO  - SpiderTaskUpdate [mCompleted=0, mTotal=0]
+2018-09-20 13:52:14,688 [8] [SaveFileWriter 1] INFO  - Crawl saved in: 0 hrs 0 mins 0 secs (154)
+2018-09-20 13:52:14,690 [8] [SpiderMain 1] INFO  - Spider changing state from: SpiderWritingToDiskState to: SpiderCrawlIdleState
+2018-09-20 13:52:14,695 [8] [main] INFO  - Exporting All Outlinks
+2018-09-20 13:52:14,695 [8] [main] INFO  - Saving All Outlinks
+2018-09-20 13:52:14,700 [8] [ReportManager 1] INFO  - Writing report All Outlinks to /home/crawls/2018.09.20.13.51.43/all_outlinks.csv
+2018-09-20 13:52:14,871 [8] [ReportManager 1] INFO  - Completed writing All Outlinks in 0 hrs 0 mins 0 secs (172)
+2018-09-20 13:52:14,872 [8] [exitlogger] INFO  - Application Exited
 ```
 
