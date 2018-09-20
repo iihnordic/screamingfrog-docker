@@ -13,4 +13,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget --no-verbose https://download.screamingfrog.co.uk/products/seo-spider/screamingfrogseospider_10.0_all.deb && \
     dpkg -i /screamingfrogseospider_10.0_all.deb && apt-get install -f -y
 
-CMD ["/usr/bin/screamingfrogseospider"]
+ENTRYPOINT ["/usr/bin/screamingfrogseospider"]
+
+CMD ["--help"]
