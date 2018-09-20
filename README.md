@@ -99,3 +99,32 @@ Options:
 
 
 
+The license and EULA needs accepting before use, I don't know how to configure that yet:
+
+```
+> docker run screamingfrog --crawl http://iihnordic.com --headless
+
+2018-09-20 12:51:11,640 [main] INFO  - Persistent config file does not exist, /root/.ScreamingFrogSEOSpider/spider.config
+2018-09-20 12:51:11,827 [8] [main] INFO  - Application Started
+2018-09-20 12:51:11,836 [8] [main] INFO  - Running: Screaming Frog SEO Spider 10.0
+2018-09-20 12:51:11,837 [8] [main] INFO  - Build: 5784af3aa002681ab5f8e98aee1f43c1be2944af
+2018-09-20 12:51:11,838 [8] [main] INFO  - Platform Info: Name 'Linux' Version '4.9.93-linuxkit-aufs' Arch 'amd64'
+2018-09-20 12:51:11,838 [8] [main] INFO  - Java Info: Vendor 'Oracle Corporation' URL 'http://java.oracle.com/' Version '1.8.0_161' Home '/usr/share/screamingfrogseospider/jre'
+2018-09-20 12:51:11,838 [8] [main] INFO  - VM args: -Xmx2g, -XX:+UseG1GC, -XX:+UseStringDeduplication, -enableassertions, -XX:ErrorFile=/root/.ScreamingFrogSEOSpider/hs_err_pid%p.log, -Djava.ext.dirs=/usr/share/screamingfrogseospider/jre/lib/ext
+2018-09-20 12:51:11,839 [8] [main] INFO  - Log File: /root/.ScreamingFrogSEOSpider/trace.txt
+2018-09-20 12:51:11,839 [8] [main] INFO  - Fatal Log File: /root/.ScreamingFrogSEOSpider/crash.txt
+2018-09-20 12:51:11,840 [8] [main] INFO  - Logging Status: OK
+2018-09-20 12:51:11,840 [8] [main] INFO  - Memory: Physical=2.0GB, Used=12MB, Free=19MB, Total=32MB, Max=2048MB, Using 0%
+2018-09-20 12:51:11,841 [8] [main] INFO  - Licence File: /root/.ScreamingFrogSEOSpider/licence.txt
+2018-09-20 12:51:11,841 [8] [main] INFO  - Licence Status: invalid
+2018-09-20 12:51:11,841 [8] [main] INFO  - Locale: en_US
+2018-09-20 12:51:12,053 [8] [main] INFO  - Rendering supported on this platform
+2018-09-20 12:51:12,063 [8] [main] INFO  - Persistent config file does not exist, /root/.ScreamingFrogSEOSpider/spider.config
+2018-09-20 12:51:12,206 [8] [main] WARN  - Unable to find a suitable Arial font - letting system select best matching font
+2018-09-20 12:51:12,317 [8] [main] INFO  - Image scaling set at [1.0]
+2018-09-20 12:51:12,564 [8] [main] INFO  - Setting proxy: ProxySettings [mEnabled=false, mHost=, mPort=3128]
+2018-09-20 12:51:12,663 [8] [main] INFO  - Has not accepted the current version of the EULA yet.
+2018-09-20 12:51:12,668 [8] [main] INFO  - User did not accept the licence agreement, exiting.
+2018-09-20 12:51:12,673 [8] [exitlogger] INFO  - Application Exited
+```
+
