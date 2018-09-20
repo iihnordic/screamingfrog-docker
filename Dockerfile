@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     libgconf-2-4
 
 RUN wget --no-verbose https://download.screamingfrog.co.uk/products/seo-spider/screamingfrogseospider_10.0_all.deb && \
-    dpkg -i /screamingfrogseospider_10.0_all.deb && apt-get install -f -y
+    dpkg -i /screamingfrogseospider_10.0_all.deb && \
+    apt-get install -f -y
 
 ENTRYPOINT ["/usr/bin/screamingfrogseospider"]
 
