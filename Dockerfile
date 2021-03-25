@@ -1,5 +1,5 @@
 # modified ubuntu https://github.com/phusion/baseimage-docker
-FROM phusion/baseimage
+FROM phusion/baseimage:master
 CMD ["/sbin/my_init"]
 
 RUN apt-get update && apt-get install -y \
